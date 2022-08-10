@@ -1,0 +1,32 @@
+{
+  "name": "phemcache",
+  "version": "1.0.0",
+  "description": "A configurable ephemeral in-memory cache",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "keywords": [
+    "cache",
+    "ephemeral cache",
+    "timed cache"
+  ],
+  "author": "dillonstreator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dillonstreator/phemcache.git"
+  },
+  "homepage": "https://github.com/dillonstreator/phemcache",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "^28.1.6",
+    "jest": "^28.1.3",
+    "ts-jest": "^28.0.7",
+    "typescript": "^4.7.4"
+  }
+}

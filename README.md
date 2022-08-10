@@ -61,3 +61,7 @@ cache.set('key4', 4, {
 });
 
 ```
+
+## Notes
+
+- `beforeClear` does not support asynchronous operations

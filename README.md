@@ -16,6 +16,9 @@
   <a aria-label="Typescript" href="https://github.com/dillonstreator/phemcache/blob/main/src/cache.ts">
     <img alt="" src="https://badgen.net/npm/types/phemcache">
   </a>
+  <a aria-label="CodeFactor" href="https://www.codefactor.io/repository/github/dillonstreator/phemcache">
+    <img alt="" src="https://www.codefactor.io/repository/github/dillonstreator/phemcache/badge">
+  </a>
 </p>
 
 

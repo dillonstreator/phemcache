@@ -37,6 +37,8 @@ yarn add phemcache
 ## Example
 
 ```javascript
+import PhemCache from 'phemcache'
+
 const cache = PhemCache({
 	ttlMs: 1000,
 	resetOnSet: true,

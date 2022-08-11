@@ -3,12 +3,27 @@
 </p>
 <h1 align="center">phemcache</h1>
 <p align="center">A configurable ephemeral in-memory cache</p>
+<p align="center">
+  <a aria-label="NPM version" href="https://www.npmjs.com/package/phemcache">
+    <img alt="" src="https://badgen.net/npm/v/phemcache">
+  </a>
+  <a aria-label="Package size" href="https://bundlephobia.com/result?p=phemcache">
+    <img alt="" src="https://badgen.net/bundlephobia/minzip/phemcache">
+  </a>
+  <a aria-label="License" href="https://github.com/dillonstreator/phemcache/blob/main/LICENSE">
+    <img alt="" src="https://badgen.net/npm/license/phemcache">
+  </a>
+  <a aria-label="Typescript" href="https://github.com/dillonstreator/phemcache/blob/main/src/cache.ts">
+    <img alt="" src="https://badgen.net/npm/types/phemcache">
+  </a>
+</p>
+
 
 ## Installation
 
 ### npm
 ```bash
-npm i phemcache
+npm install phemcache
 ```
 
 ### yarn

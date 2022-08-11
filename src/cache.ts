@@ -10,7 +10,7 @@ interface PhemCacheValue<K, V> extends PhemCacheOptions<K, V> {
 	value: V;
 
 	timeout: ReturnType<typeof setTimeout>;
-};
+}
 
 const PhemCache = <K, V>({
 	resetOnGet = false,

@@ -2,8 +2,8 @@
   "name": "phemcache",
   "version": "1.0.0",
   "description": "A configurable ephemeral in-memory cache",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/cache.js",
+  "types": "dist/cache.d.ts",
   "files": [
     "dist"
   ],

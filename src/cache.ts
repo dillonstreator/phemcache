@@ -12,7 +12,7 @@ interface PhemCacheValue<K, V> extends PhemCacheOptions<K, V> {
 	timeout: ReturnType<typeof setTimeout>;
 };
 
-export const PhemCache = <K, V>({
+const PhemCache = <K, V>({
 	resetOnGet = false,
 	resetOnSet = false,
 	ttlMs = 1000 * 60 * 10,
@@ -98,3 +98,5 @@ export const PhemCache = <K, V>({
 		__cache: cache,
 	};
 };
+
+export default PhemCache;

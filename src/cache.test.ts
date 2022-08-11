@@ -1,4 +1,4 @@
-import { PhemCache } from './cache';
+import PhemCache from './cache';
 
 describe('PhemCache', () => {
 	it('should set and get values', () => {

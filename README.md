@@ -1,6 +1,8 @@
-# phemcache
-
-A configurable ephemeral in-memory cache with before and after clear hooks
+<p align="center">
+	<img src="./logo.svg" style="border-radius:50%;" />
+</p>
+<h1 align="center">phemcache</h1>
+<p align="center">A configurable ephemeral in-memory cache</p>
 
 ## Installation
 
@@ -18,7 +20,7 @@ yarn add phemcache
 
 ```javascript
 const cache = PhemCache({
-	ttlMS: 1000,
+	ttlMs: 1000,
 	resetOnSet: true,
 	resetOnGet: true,
 	beforeClear(key, value) {
@@ -41,7 +43,7 @@ cache.set('key2', 2, {
 
 // override all global options for key3
 cache.set('key3', 3, {
-	ttlMS: 500,
+	ttlMs: 500,
 	resetOnGet: false,
 	resetOnSet: false,
 	beforeClear(key, value) {

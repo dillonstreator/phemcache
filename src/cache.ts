@@ -1,7 +1,7 @@
 type PhemCacheOptions<K, V> = {
 	resetOnSet?: boolean; // whether to reset the time to live when a key is set. default false
 	resetOnGet?: boolean; // whether to reset the time to live when a key is retrieved. default false
-	ttlMS?: number; // time to live (ttl) is the time in milliseconds before the key is cleared from the cache after being set. default 10 minutes
+	ttlMs?: number; // time to live (ttl) is the time in milliseconds before the key is cleared from the cache after being set. default 10 minutes
 	beforeClear?: (key: K, value: V) => boolean | undefined | void; // access a key & value before they are cleared from the cache and optionally prevent clearing by returning false
 	afterClear?: (key: K, value: V) => void; // access a key & value after they are cleared from the cache
 };
@@ -15,7 +15,7 @@ interface PhemCacheValue<K, V> extends PhemCacheOptions<K, V> {
 export const PhemCache = <K, V>({
 	resetOnGet = false,
 	resetOnSet = false,
-	ttlMS = 1000 * 60 * 10,
+	ttlMs = 1000 * 60 * 10,
 	beforeClear,
 	afterClear,
 }: PhemCacheOptions<K, V> = {}) => {
@@ -61,7 +61,7 @@ export const PhemCache = <K, V>({
 
 			if (got.resetOnGet ?? resetOnGet) {
 				clearTimeout(got.timeout);
-				got.timeout = createTimeout(key, got.ttlMS ?? ttlMS);
+				got.timeout = createTimeout(key, got.ttlMs ?? ttlMs);
 			}
 
 			return got.value;
@@ -70,18 +70,18 @@ export const PhemCache = <K, V>({
 			const got = cache.get(key);
 
 			let timeout: PhemCacheValue<K, V>['timeout'];
-			const _ttlMS = opts.ttlMS ?? got?.ttlMS ?? ttlMS;
+			const _ttlMs = opts.ttlMs ?? got?.ttlMs ?? ttlMs;
 			const _resetOnSet = opts.resetOnSet ?? got?.resetOnSet ?? resetOnSet;
 
 			if (got) {
 				if (got.resetOnSet ?? resetOnSet) {
 					clearTimeout(got.timeout);
-					timeout = createTimeout(key, _ttlMS);
+					timeout = createTimeout(key, _ttlMs);
 				} else {
 					timeout = got.timeout;
 				}
 			} else {
-				timeout = createTimeout(key, _ttlMS);
+				timeout = createTimeout(key, _ttlMs);
 			}
 
 			cache.set(key, {
@@ -89,7 +89,7 @@ export const PhemCache = <K, V>({
 				value,
 				resetOnGet: opts.resetOnGet ?? got?.resetOnGet ?? resetOnGet,
 				resetOnSet: _resetOnSet,
-				ttlMS: _ttlMS,
+				ttlMs: _ttlMs,
 				beforeClear: opts.beforeClear ?? got?.beforeClear ?? beforeClear,
 				afterClear: opts.afterClear ?? got?.afterClear ?? afterClear,
 			});

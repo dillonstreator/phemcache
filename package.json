@@ -1,6 +1,6 @@
 {
   "name": "phemcache",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "A configurable ephemeral in-memory cache",
   "main": "dist/cache.js",
   "types": "dist/cache.d.ts",
@@ -8,7 +8,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rimraf dist/ && tsc",
+    "build": "rimraf dist/ && tsc && rimraf dist/**.test.**",
     "test": "jest"
   },
   "keywords": [

@@ -127,4 +127,8 @@ describe('PhemCache', () => {
 		await sleepMs(20);
 		expect(__cache.get('test')).toBe(undefined);
 	});
+
+	it("should fail", () => {
+		expect(1).toBe(2);
+	})
 });

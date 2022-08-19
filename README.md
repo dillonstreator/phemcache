@@ -4,6 +4,9 @@
 <h1 align="center">phemcache</h1>
 <p align="center">A configurable ephemeral in-memory cache</p>
 <p align="center">
+  <a aria-label="Test coverage" href="https://codecov.io/gh/dillonstreator/phemcache">
+    <img alt="" src="https://codecov.io/gh/dillonstreator/phemcache/branch/main/graph/badge.svg?token=H63TLXZEBA">
+  </a>
   <a aria-label="NPM version" href="https://www.npmjs.com/package/phemcache">
     <img alt="" src="https://badgen.net/npm/v/phemcache">
   </a>

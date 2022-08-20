@@ -127,4 +127,45 @@ describe('PhemCache', () => {
 		await sleepMs(20);
 		expect(__cache.get('test')).toBe(undefined);
 	});
+
+	it('should override global options', async () => {
+		const globalBeforeClear = jest.fn();
+		const globalAfterClear = jest.fn();
+		const cache = PhemCache<string, string>({
+			ttlMs: 50,
+			beforeClear: globalBeforeClear,
+			afterClear: globalAfterClear,
+			resetOnGet: false,
+			resetOnSet: false,
+		});
+
+		const localBeforeClear = jest.fn();
+		const localAfterClear = jest.fn();
+		cache.set('test', '123', {
+			ttlMs: 100,
+			beforeClear: localBeforeClear,
+			afterClear: localAfterClear,
+			resetOnGet: true,
+			resetOnSet: true,
+		});
+
+		await sleepMs(90);
+		expect(cache.get('test')).toBe('123');
+
+		await sleepMs(90);
+		expect(cache.__cache.get('test').value).toBe('123');
+
+		cache.set('test', '456');
+
+		await sleepMs(90);
+		expect(cache.__cache.get('test').value).toBe('456');
+
+		await sleepMs(20);
+		expect(cache.__cache.get('test')).toBe(undefined);
+
+		expect(globalBeforeClear).not.toHaveBeenCalled();
+		expect(globalAfterClear).not.toHaveBeenCalled();
+		expect(localBeforeClear).toHaveBeenCalledWith('test', '456');
+		expect(localAfterClear).toHaveBeenCalledWith('test', '456');
+	});
 });

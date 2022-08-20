@@ -25,7 +25,7 @@ const PhemCache = <K, V>({
 		setTimeout(() => {
 			if (!cache.has(key)) return;
 
-			const got = cache.get(key)!;
+			const got = cache.get(key);
 			const _beforeClear = got.beforeClear ?? beforeClear;
 			const _afterClear = got.afterClear ?? afterClear;
 			if (!_beforeClear) {
@@ -69,7 +69,7 @@ const PhemCache = <K, V>({
 		set: (key: K, value: V, opts: PhemCacheOptions<K, V> = {}) => {
 			const got = cache.get(key);
 
-			let timeout: PhemCacheValue<K, V>['timeout'];
+			let timeout: PhemCacheValue<K, V>["timeout"];
 			const _ttlMs = opts.ttlMs ?? got?.ttlMs ?? ttlMs;
 			const _resetOnSet = opts.resetOnSet ?? got?.resetOnSet ?? resetOnSet;
 
